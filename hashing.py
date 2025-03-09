@@ -15,4 +15,14 @@ def get_hexdigest(salt, text):
 
 def password(text, name, length):
   raw_hex = make_password(text, name)
-  Alphabet = 
+  Alphabet = string.ascii_letters
+
+  num = int(raw_hex, 16)
+  num_chars = len(Alphabet)
+  chars = []
+
+  while len(chars) < length):
+    num, index = divmod(num, num_chars)
+    chars.append(Alphabet[index])
+
+  return ''.join(chars)
